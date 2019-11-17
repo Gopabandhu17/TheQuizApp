@@ -19,16 +19,25 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CTH-8u-TRt">
-                                        <rect key="frame" x="8" y="0.0" width="398" height="810"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="802"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: -/-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLv-GA-NgA">
+                                                <rect key="frame" x="0.0" y="0.0" width="398" height="45"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="zAH-P5-2np"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="17"/>
+                                                <color key="textColor" red="0.8862745098" green="0.34509803919999998" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question will be shown here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUO-Is-ygA">
-                                                <rect key="frame" x="0.0" y="0.0" width="398" height="684"/>
+                                                <rect key="frame" x="0.0" y="53" width="398" height="613"/>
                                                 <fontDescription key="fontDescription" name="Rockwell-Bold" family="Rockwell" pointSize="21"/>
                                                 <color key="textColor" red="0.88627450980392153" green="0.34509803921568627" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXH-iw-KG9">
-                                                <rect key="frame" x="0.0" y="692" width="398" height="55"/>
+                                                <rect key="frame" x="0.0" y="674" width="398" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="EiF-tN-Lyv"/>
@@ -42,7 +51,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dr1-7R-Vug">
-                                                <rect key="frame" x="0.0" y="755" width="398" height="55"/>
+                                                <rect key="frame" x="0.0" y="737" width="398" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="55" id="kSX-M9-z6T"/>
@@ -55,6 +64,13 @@
                                                     <action selector="btnTrueOrFalse:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IWR-Dt-MIp"/>
                                                 </connections>
                                             </button>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-xR-ElY">
+                                                <rect key="frame" x="0.0" y="800" width="398" height="3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="2" id="5D2-p4-SfH"/>
+                                                </constraints>
+                                                <color key="progressTintColor" red="0.8862745098" green="0.34509803919999998" blue="0.1333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </progressView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -62,7 +78,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="CTH-8u-TRt" secondAttribute="bottom" constant="8" id="A15-EX-4tf"/>
                                     <constraint firstItem="CTH-8u-TRt" firstAttribute="leading" secondItem="P39-pw-Fgj" secondAttribute="leading" constant="8" id="Edw-Za-awo"/>
-                                    <constraint firstItem="CTH-8u-TRt" firstAttribute="top" secondItem="P39-pw-Fgj" secondAttribute="top" id="LcE-Lh-FFe"/>
+                                    <constraint firstItem="CTH-8u-TRt" firstAttribute="top" secondItem="P39-pw-Fgj" secondAttribute="top" constant="8" id="LcE-Lh-FFe"/>
                                     <constraint firstAttribute="trailing" secondItem="CTH-8u-TRt" secondAttribute="trailing" constant="8" id="xQW-6h-1FF"/>
                                 </constraints>
                             </view>
@@ -80,6 +96,8 @@
                         <outlet property="btnFalse" destination="dr1-7R-Vug" id="nac-CF-8wG"/>
                         <outlet property="btnTrue" destination="xXH-iw-KG9" id="49n-KJ-how"/>
                         <outlet property="lblQuestion" destination="KUO-Is-ygA" id="XKS-yn-bwM"/>
+                        <outlet property="lblScore" destination="jLv-GA-NgA" id="XDl-mt-Nlg"/>
+                        <outlet property="progressView" destination="eeG-xR-ElY" id="ILE-UY-Xht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

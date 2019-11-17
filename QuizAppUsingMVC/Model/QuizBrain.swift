@@ -11,21 +11,22 @@ import Foundation
 struct QuizBrain {
     
     let quiz = [
-        QuizQusAndAns(q: "A slug's blood is green.", a: "True"),
-    QuizQusAndAns(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
-    QuizQusAndAns(q: "The total surface area of two human lungs is approximately 70 square metres.", a: "True"),
-    QuizQusAndAns(q: "In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.", a: "True"),
-    QuizQusAndAns(q: "In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.", a: "False"),
-    QuizQusAndAns(q: "It is illegal to pee in the Ocean in Portugal.", a: "True"),
-    QuizQusAndAns(q: "You can lead a cow down stairs but not up stairs.", a: "False"),
-    QuizQusAndAns(q: "Google was originally called 'Backrub'.", a: "True"),
-    QuizQusAndAns(q: "Buzz Aldrin's mother's maiden name was 'Moon'.", a: "True"),
-    QuizQusAndAns(q: "The loudest sound produced by any animal is 188 decibels. That animal is the African Elephant.", a: "False"),
-    QuizQusAndAns(q: "No piece of square dry paper can be folded in half more than 7 times.", a: "False"),
-    QuizQusAndAns(q: "Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
+        QuizQusAndAns(q: "1. A slug's blood is green.", a: "True"),
+    QuizQusAndAns(q: "2. Approximately one quarter of human bones are in the feet.", a: "True"),
+    QuizQusAndAns(q: "3. The total surface area of two human lungs is approximately 70 square metres.", a: "True"),
+    QuizQusAndAns(q: "4. In West Virginia, USA, if you accidentally hit an animal with your car, you are free to take it home to eat.", a: "True"),
+    QuizQusAndAns(q: "5. In London, UK, if you happen to die in the House of Parliament, you are technically entitled to a state funeral, because the building is considered too sacred a place.", a: "False"),
+    QuizQusAndAns(q: "6. It is illegal to pee in the Ocean in Portugal.", a: "True"),
+    QuizQusAndAns(q: "7. You can lead a cow down stairs but not up stairs.", a: "False"),
+    QuizQusAndAns(q: "8. Google was originally called 'Backrub'.", a: "True"),
+    QuizQusAndAns(q: "9. Buzz Aldrin's mother's maiden name was 'Moon'.", a: "True"),
+    QuizQusAndAns(q: "10. The loudest sound produced by any animal is 188 decibels. That animal is the African Elephant.", a: "False"),
+    QuizQusAndAns(q: "11. No piece of square dry paper can be folded in half more than 7 times.", a: "False"),
+    QuizQusAndAns(q: "12. Chocolate affects a dog's heart and nervous system; a few ounces are enough to kill a small dog.", a: "True")
     ]
     
     var currentQuestionNumber = 0
+    var score = 0
     
     func getQuestion() -> String{
         
@@ -40,15 +41,27 @@ struct QuizBrain {
         }else{
             
             currentQuestionNumber = 0
+            score = 0
         }
     }
     
-    func checkAnswer(userAnswer: String) -> Bool{
+    mutating func checkAnswer(userAnswer: String) -> Bool{
         
         if userAnswer == quiz[currentQuestionNumber].answer{
+            score += 1
             return true
         }else{
             return false
         }
+    }
+    
+    func showProgress() -> Float{
+        
+        return Float(currentQuestionNumber + 1) / Float(quiz.count)
+    }
+    
+    func getScore() -> Int{
+        
+        return score
     }
 }
